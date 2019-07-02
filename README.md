@@ -8,8 +8,6 @@ You are given a string stored in variable `problem`. Write code so that you prin
 
 ```swift
 var problem = "split this string into words and print them on separate lines"
-
-// Your code
 ```
 
 Example
@@ -32,6 +30,16 @@ separate
 lines
 ```
 
+Answer:
+```swift
+var problem = "split this string into words and print them on separate lines"
+var problemArray = problem.components(separatedBy: " ")
+
+for word in problemArray {
+print(word)
+}
+```
+
 
 ## Question 2
 
@@ -39,9 +47,31 @@ Given a string `testString` create a new variable called `condensedString` that 
 
 ```swift
 let testString = "  How   about      thesespaces  ?  "
-//condensedString = " How about thesespaces ? "
+//condensedString = " How about these spaces ? "
 ```
 
+Answer:
+```swift
+let testString = "  How   about      these spaces  ?  "
+//condensedString = " How about these spaces ? "
+//
+let testStringArray = testString.components(separatedBy:" ")
+//print(testStringArray)
+
+var emptyArray =  [String]()
+
+for characters in testStringArray {
+if characters == "" {
+continue
+}
+emptyArray.append(characters)
+}
+//print(emptyArray, terminator: "")
+
+for i in emptyArray {
+print(i + " ", terminator: "")
+}
+```
 
 ## Question 3
 
@@ -53,6 +83,17 @@ Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
 
+Answer:
+```swift
+var string = "Swift is the best language"
+let stringArray = string.components(separatedBy: " ")
+
+var emptyString = ""
+for word in stringArray {
+emptyString =  "\(word) " + emptyString
+}
+print(emptyString, terminator: "")
+```
 
 ## Question 4
 
@@ -64,6 +105,19 @@ Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
 
+Answer:
+```swift
+var string = "danaerys dad cat civic bottle"
+let stringArray = string.components(separatedBy: " ")
+var count = 0
+
+for words in stringArray {
+if String(words) == String(words.reversed()) {
+count += 1
+}
+}
+print(count)
+```
 
 ## Question 5
 
@@ -83,6 +137,27 @@ Sample Input: `"PPALLP"`
 
 Sample Output: `true`
 
+```swift
+var attendance = "PPALLP"
+let absent = "A"
+let late = "LLL"
+var absentCount = 0
+
+for letter in attendance {
+if letter == "A" {
+absentCount += 1
+continue
+}
+}
+
+print(absentCount)
+
+if attendance.contains(late) == true || absentCount > 1 {
+print("false")
+} else {
+print("true")
+}
+```
 
 ## Question 6
 
@@ -99,3 +174,48 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+
+
+Answer:
+```swift
+var tuple = (ransom: "aaa", mag: "baaab")
+
+var ransomArray = [Character] ()
+var magArray = [Character] ()
+
+for ransomLetter in tuple.0 {
+ransomArray.append(ransomLetter)
+}
+//print(ransomArray)
+
+for magLetter in tuple.1 {
+magArray.append(magLetter)
+}
+//print(magArray)
+
+
+for a in ransomArray {
+var counterRansom = 0
+var counterMag = 0
+for b in magArray {
+if ransomArray.count == counterRansom {
+break
+}
+if a == b {
+ransomArray.remove(at:counterRansom)
+magArray.remove(at:counterMag)
+continue
+}
+counterMag += 1
+}
+counterRansom += 1
+
+}
+print(ransomArray)
+
+if ransomArray.count == 0 {
+print("true")
+} else {
+print("false")
+}
+```
