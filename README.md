@@ -2,7 +2,7 @@
 
 Fork and clone this repo. On your fork, answer and commit the follow questions. When you are finished, submit the link to your repo on Canvas.
 
-## Question 1
+## Question 1 DONE
 
 You are given a string stored in variable `problem`. Write code so that you print each word of the string on a new line.
 
@@ -41,7 +41,7 @@ print(word)
 ```
 
 
-## Question 2
+## Question 2 DONE
 
 Given a string `testString` create a new variable called `condensedString` that has any consecutive spaces in `testString` replaced with a single space.
 
@@ -54,7 +54,7 @@ Answer:
 ```swift
 let testString = "  How   about      these spaces  ?  "
 //condensedString = " How about these spaces ? "
-//
+
 let testStringArray = testString.components(separatedBy:" ")
 //print(testStringArray)
 
@@ -73,7 +73,7 @@ print(i + " ", terminator: "")
 }
 ```
 
-## Question 3
+## Question 3 DONE
 
 Given a string with multiple words. Reverse the string word by word.
 
@@ -95,7 +95,7 @@ emptyString =  "\(word) " + emptyString
 print(emptyString, terminator: "")
 ```
 
-## Question 4
+## Question 4 DONE
 
 Given a string with multiple words. Write code that prints how many of them are palindromes.
 
@@ -119,7 +119,7 @@ count += 1
 print(count)
 ```
 
-## Question 5
+## Question 5 DONE
 
 You are given a string representing an **attendance record** for a student. The record only contains the following three characters:
 
@@ -140,17 +140,14 @@ Sample Output: `true`
 ```swift
 var attendance = "PPALLP"
 let absent = "A"
-let late = "LLL"
 var absentCount = 0
+let late = "LLL"
 
 for letter in attendance {
 if letter == "A" {
 absentCount += 1
-continue
 }
 }
-
-print(absentCount)
 
 if attendance.contains(late) == true || absentCount > 1 {
 print("false")
@@ -159,7 +156,7 @@ print("true")
 }
 ```
 
-## Question 6
+## Question 6 ***
 
 Given a tuple with two strings. The first string is a **ransom note**, the second string being the characters from a magazine. Determine whether or not you can construct the ransom note using the characters from the magazine.
 
